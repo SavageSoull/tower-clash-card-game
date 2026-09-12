@@ -2,8 +2,8 @@ import { GameState, Player, Minion, Card, PlayerStructure, Tower, Castle } from 
 
 // Initialize a new game state
 export const initializeGame = (): GameState => {
-  const player1 = createPlayer('player1', 'Player 1');
-  const player2 = createPlayer('player2', 'Player 2');
+  const player1 = createPlayer('player1', 'Player');
+  const player2 = createPlayer('player2', 'Computer');
 
   return {
     player1,
@@ -20,7 +20,7 @@ const createPlayer = (id: string, name: string): Player => {
   return {
     id,
     name,
-    health: 20, // Starting health
+    health: 20,
     maxHealth: 20,
     gold: 1,
     maxGold: 1,
@@ -109,7 +109,7 @@ export const playCard = (
   const card = currentPlayer.hand[cardIndex];
 
   if (!card || card.cost > currentPlayer.gold) {
-    return gameState; // Can't play card
+    return gameState;
   }
 
   if (card.type === 'minion') {
@@ -118,7 +118,7 @@ export const playCard = (
       ...minion,
       id: Math.random().toString(36).substr(2, 9),
       hasAttackedThisTurn: false,
-      canAttackThisTurn: false, // Summoning sickness
+      canAttackThisTurn: false,
     };
 
     const newHand = currentPlayer.hand.filter((_, i) => i !== cardIndex);
@@ -142,6 +142,26 @@ export const playCard = (
   return gameState;
 };
 
+// AI: Simple computer turn logic
+export const computerTurn = (gameState: GameState): GameState => {
+  let newGameState = { ...gameState };
+  const computer = newGameState.player2;
+
+  // Play cards randomly if affordable
+  let cardsPlayed = 0;
+  for (let i = 0; i < computer.hand.length && cardsPlayed < 2; i++) {
+    const card = computer.hand[i];
+    if (card.cost <= computer.gold && Math.random() > 0.5) {
+      newGameState = playCard(newGameState, i);
+      cardsPlayed++;
+    }
+  }
+
+  // End turn
+  newGameState = endTurn(newGameState);
+  return newGameState;
+};
+
 // End turn and transition to next player
 export const endTurn = (gameState: GameState): GameState => {
   const nextPlayer =
@@ -155,7 +175,7 @@ export const endTurn = (gameState: GameState): GameState => {
   const updatedBoard = currentPlayer.board.map((minion) => ({
     ...minion,
     hasAttackedThisTurn: false,
-    canAttackThisTurn: true, // Can attack next turn (unless just summoned)
+    canAttackThisTurn: true,
   }));
 
   const updatedPlayer = {
