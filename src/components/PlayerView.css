@@ -1,0 +1,154 @@
+.player-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  border: 2px solid #444;
+}
+
+.player-view.opponent {
+  border-color: #d00;
+}
+
+.player-view.current {
+  border-color: #0d0;
+}
+
+.player-name {
+  grid-column: 1 / -1;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.player-stats {
+  display: flex;
+  gap: 10px;
+  grid-column: 1 / -1;
+}
+
+.stat {
+  background: rgba(255, 215, 0, 0.1);
+  padding: 8px 12px;
+  border-radius: 5px;
+  border-left: 3px solid #ffd700;
+}
+
+.stat .label {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-right: 5px;
+}
+
+.stat .value {
+  color: #fff;
+  font-weight: bold;
+}
+
+.structures {
+  grid-column: 1 / 2;
+  background: rgba(100, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.structures h4 {
+  color: #ffd700;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.castle {
+  background: rgba(255, 215, 0, 0.15);
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  border: 2px solid #ffd700;
+}
+
+.castle-name {
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.castle-health {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.towers {
+  display: flex;
+  gap: 5px;
+}
+
+.tower {
+  flex: 1;
+  background: rgba(255, 100, 0, 0.2);
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ff6400;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.tower.destroyed {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.tower-name {
+  color: #ff9900;
+  font-weight: bold;
+}
+
+.tower-health {
+  color: #ccc;
+  font-size: 0.75rem;
+}
+
+.board {
+  grid-column: 2 / 3;
+  background: rgba(100, 100, 200, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.board h4 {
+  color: #ffd700;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.minion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.minion-card {
+  background: rgba(100, 200, 255, 0.2);
+  padding: 6px;
+  border-radius: 4px;
+  border-left: 3px solid #64c8ff;
+}
+
+.minion-name {
+  font-weight: bold;
+  color: #64c8ff;
+  font-size: 0.9rem;
+}
+
+.minion-stats {
+  display: flex;
+  gap: 8px;
+  font-size: 0.8rem;
+  margin-top: 3px;
+}
+
+.attack, .health {
+  color: #ccc;
+}

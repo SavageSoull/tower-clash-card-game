@@ -1,0 +1,79 @@
+.main-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.menu-container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 600px;
+  border: 2px solid #ffd700;
+}
+
+.game-title {
+  font-size: 4rem;
+  margin-bottom: 10px;
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.game-subtitle {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.btn {
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: #000;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+.menu-info {
+  margin-top: 40px;
+  text-align: left;
+  background: rgba(255, 215, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #ffd700;
+}
+
+.menu-info h2 {
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+
+.menu-info ul {
+  list-style: none;
+}
+
+.menu-info li {
+  margin: 8px 0;
+  color: #ddd;
+}
+
+.menu-info li:before {
+  content: "→ ";
+  color: #ffd700;
+  margin-right: 10px;
+}

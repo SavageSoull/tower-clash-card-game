@@ -1,0 +1,74 @@
+.game-board {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid #ffd700;
+}
+
+.game-header h1 {
+  font-size: 2rem;
+  color: #ffd700;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.opponent-section {
+  flex: 0.5;
+  padding: 20px;
+  border-bottom: 2px solid #444;
+}
+
+.game-info {
+  padding: 20px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.turn-info h2 {
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+.turn-info p {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.player-section {
+  flex: 0.5;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.btn-secondary {
+  background: #666;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-secondary:hover {
+  background: #888;
+}
