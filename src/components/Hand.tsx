@@ -14,12 +14,12 @@ const Hand: React.FC<HandProps> = ({ hand, gold, onPlayCard }) => {
   return (
     <div className="hand">
       <div className="hand-header">
-        <h3>Your Hand</h3>
-        <span className="gold-counter">Gold: {gold}</span>
+        <h3>🃏 Hand</h3>
+        <span className="gold-counter">💰 {gold}</span>
       </div>
       <div className="hand-cards">
         {hand.length === 0 ? (
-          <p className="empty-hand">No cards in hand</p>
+          <p className="empty-hand">No cards</p>
         ) : (
           hand.map((card, index) => (
             <div
@@ -43,6 +43,7 @@ const Hand: React.FC<HandProps> = ({ hand, gold, onPlayCard }) => {
                 className="btn-play"
                 onClick={() => onPlayCard(index)}
                 disabled={!canAfford(card.cost)}
+                title={!canAfford(card.cost) ? `Need ${card.cost} gold (have ${gold})` : 'Click to play'}
               >
                 Play
               </button>
